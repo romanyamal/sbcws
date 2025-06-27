@@ -1,0 +1,9 @@
+name: sbcws
+services:
+  prod:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    restart: unless-stopped
