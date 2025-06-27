@@ -15,6 +15,9 @@ jobs:
       pages: write
       id-token: write
 
+    environment:
+      name: github-pages
+      
     env:
       REPO_NAME: ${{ github.event.repository.name }}
       USERNAME: ${{ github.actor }}
@@ -52,5 +55,3 @@ jobs:
       - name: Deploy Github Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        env:
-          name: github-pages 
