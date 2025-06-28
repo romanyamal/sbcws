@@ -13,9 +13,7 @@ import { TextureBG } from "./components/TextureBG";
 
 function App() {
   //only for github pages routing
-  const baseName = process.env.REACT_APP_REPO_NAME
-    ? `/${process.env.REACT_APP_REPO_NAME}`
-    : "sbcws";
+  const baseName = process.env.REPO_NAME ? `/${process.env.REPO_NAME}` : "";
   return (
     <Router basename={baseName}>
       <div className="relative w-full min-h-screen">

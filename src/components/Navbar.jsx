@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import logoimg from "../assets/cropped-IMG954513.png";
 
 export const Navbar = () => {
@@ -41,17 +42,17 @@ export const Navbar = () => {
               <ul className="hidden md:flex items-center space-x-4 lg:space-x-8">
                 {navLinks.map((link, index) => (
                   <li key={index}>
-                    <a
+                    <Link
                       className="text-white hover:text-primary transition-colors duration-300"
-                      href={link.url}
+                      to={link.url}
                     >
                       {link.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
                 <li>
                   <button className="text-md min-w-24 my-4 border rounded-md font-action text-black px-4 py-2 text-center bg-white hover:bg-primary transform transition-transform duration-300 ">
-                    <a href="/visit">Plan a Visit</a>
+                    <Link to="/visit">Plan a Visit</Link>
                   </button>
                 </li>
               </ul>
@@ -101,22 +102,22 @@ export const Navbar = () => {
           >
             <div className="flex flex-col gap-8 items-center justify-center h-full">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.title}
-                  href={link.url}
+                  to={link.url}
                   className="text-white font-light text-2xl cursor-pointer hover:text-accent transition-colors "
                   onClick={toggleModal}
                 >
                   {link.title}
-                </a>
+                </Link>
               ))}
-              <a
-                href="/visit"
+              <Link
+                to="/visit"
                 className="min-w-24 my-4 border rounded-sm font-action text-text px-4 py-2 text-center bg-white hover:bg-text hover:text-black transform transition-transform duration-500"
                 onClick={toggleModal}
               >
                 Plan a Visit
-              </a>
+              </Link>
             </div>
           </div>
         </nav>
