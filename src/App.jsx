@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
@@ -13,7 +13,9 @@ import { TextureBG } from "./components/TextureBG";
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <BrowserRouter
+      basename={import.meta.env.MODE === "production" ? "/sbcws" : ""}
+    >
       <div className="relative w-full min-h-screen">
         <TextureBG />
         <div className="relative z-10 flex flex-col min-h-screen">
@@ -33,7 +35,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
