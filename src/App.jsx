@@ -12,10 +12,10 @@ import "./App.css";
 import { TextureBG } from "./components/TextureBG";
 
 function App() {
-  //for github pages routing
+  //only for github pages routing
   const baseName = process.env.REACT_APP_REPO_NAME
     ? `/${process.env.REACT_APP_REPO_NAME}`
-    : "";
+    : "sbcws";
   return (
     <Router basename={baseName}>
       <div className="relative w-full min-h-screen">
