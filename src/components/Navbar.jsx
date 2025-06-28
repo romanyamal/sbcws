@@ -36,9 +36,9 @@ export const Navbar = () => {
         <nav className="fixed top-0 w-full z-40 bg-gray-800 mask-b-from-97% mask-b-to-100%">
           <div className="mx-auto px-4">
             <div className="flex justify-center md:justify-between items-center lg:px-36 h-16">
-              <a href="/">
+              <Link to="/">
                 <img className="max-w-15" src={logoimg} alt="Church Logo" />
-              </a>
+              </Link>
               <ul className="hidden md:flex items-center space-x-4 lg:space-x-8">
                 {navLinks.map((link, index) => (
                   <li key={index}>
@@ -63,9 +63,9 @@ export const Navbar = () => {
         /* Mobile Navbar */
         <nav className={`fixed top-0 z-40 w-full bg-gray-800 py-3 px-4 h-20`}>
           <div className="mx-auto flex justify-center items-center">
-            <a href="/">
+            <Link to="/">
               <img className="max-w-15" src={logoimg} alt="Church Logo" />
-            </a>
+            </Link>
             <button
               className={`
                 absolute top-6 right-6 cursor-pointer text-lg z-40 text-white

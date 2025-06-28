@@ -51,7 +51,7 @@ export const Home = () => {
           <img src={churchimg} className="max-w-80" />
           <img src={churchimg} className="max-w-80" />
         </div> */}
-        <div className="px-40 py-8">
+        <div className="px-4 lg:px-40 py-8">
           <img src={iam} className="rounded-sm" loading="lazy" />
         </div>
       </section>
