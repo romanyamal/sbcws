@@ -25,6 +25,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Set base path for GitHub Pages deployment
+        run: |
+          REPO_NAME=$(basename $GITHUB_REPOSITORY)
+          echo "VITE_APP_BASE_PATH=/$REPO_NAME" >> .env
+
+      - name: Modify build script in package.json
+        run: |
+          REPO_NAME=$(basename $GITHUB_REPOSITORY)
+          PACKAGE_JSON="package.json"
+          if grep -q '"build":' $PACKAGE_JSON; then
+            echo "Build script exists, modifying it..."
+            jq '.scripts.build = "vite build --base /'"$REPO_NAME"'"' $PACKAGE_JSON > temp.json && mv temp.json $PACKAGE_JSON
+          else
+            echo "No build script found, adding it..."
+            jq '.scripts += { "build": "vite build --base /'"$REPO_NAME"'" }' $PACKAGE_JSON > temp.json && mv temp.json $PACKAGE_JSON
+          fi
+
       - name: Build Vite app
         run: npm run build
 

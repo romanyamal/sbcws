@@ -14,7 +14,11 @@ import { TextureBG } from "./components/TextureBG";
 function App() {
   return (
     <BrowserRouter
-      basename={import.meta.env.MODE === "production" ? "/sbcws" : ""}
+      basename={
+        import.meta.env.MODE === "production"
+          ? `/${process.env.VITE_APP_BASE_PATH}`
+          : ""
+      }
     >
       <div className="relative w-full min-h-screen">
         <TextureBG />
