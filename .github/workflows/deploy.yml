@@ -1,4 +1,4 @@
-name: Deploy to Pages
+name: Deploy React Vite app to Github Pages
 
 on:
   push:
@@ -7,8 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
 
     steps:
       - name: Checkout repository
