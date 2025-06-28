@@ -1,4 +1,4 @@
-name: Deploy React Vite app to Github Pages
+name: Deploy to Pages
 
 on:
   push:
@@ -7,20 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-
-    env:
-      REPO_NAME: ${{ github.event.repository.name }}
-      USERNAME: ${{ github.actor }}
 
     steps:
       - name: Checkout repository
@@ -31,12 +19,6 @@ jobs:
 
       - name: Build Vite app
         run: npm run build
-
-      # - name: Modify index.html for GitHub Pages routing
-      #   run: |
-      #     echo "Modifying index.html to add base path for routing..."
-      #     # Inject a base href tag to ensure correct routing from the subdirectory
-      #     echo "<base href='/${{ env.REPO_NAME }}/'>" >> ./dist/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
