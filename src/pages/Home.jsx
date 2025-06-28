@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import bgImage from "../assets/aaron-burden-vKBdY7e7KFk-unsplash.jpg";
 import churchimg from "../assets/IMG955280-1024x768.jpg";
 import iam from "../assets/iam.jpg";
@@ -21,10 +22,10 @@ export const Home = () => {
           </h2>
           <div className="flex items-center justify-center gap-6">
             <button className="text-md min-w-24 my-2 rounded-md font-action text-black px-3 py-2 text-center bg-white hover:bg-primary transform transition-transform duration-300 ">
-              <a href="/watch">WATCH</a>
+              <Link to="/watch">WATCH</Link>
             </button>
             <button className="text-md min-w-24 my-2 rounded-md font-action text-black px-3 py-2 text-center bg-white hover:bg-primary transform transition-transform duration-300 ">
-              <a href="/visit">VISIT</a>
+              <Link to="/visit">VISIT</Link>
             </button>
           </div>
         </div>
@@ -88,7 +89,7 @@ export const Home = () => {
             * * Note: currently we only have Russian service * *
           </span>
           <button className="text-md min-w-24 my-6 rounded-md font-action text-black px-3 py-2 text-center bg-white hover:bg-primary transform transition-transform duration-300 ">
-            <a href="/visit">Plan a visit</a>
+            <Link to="/visit">Plan a visit</Link>
           </button>
         </div>
       </section>
