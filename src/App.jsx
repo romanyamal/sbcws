@@ -13,7 +13,7 @@ import { TextureBG } from "./components/TextureBG";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="relative w-full min-h-screen">
         <TextureBG />
         <div className="relative z-10 flex flex-col min-h-screen">
